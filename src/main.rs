@@ -30,14 +30,46 @@ fn main() {
     //     print!("{}", i)
     // }
     //prints 0123456789
-    let a = 10;
-    let b = 20;
-    let sum = do_sum(a, b);
+    // let a = 10;
+    // let b = 20;
+    // let sum = do_sum(a, b);
 
-    println!("Sum of {} and {} is {}", a, b, sum);
+    // println!("Sum of {} and {} is {}", a, b, sum);
+
+    //ownership
+
+    // let greeting = String::from("hello Imtiyaz");
+    // println!("{}", greeting); //will work
+
+    // let y = greeting;
+    // println!("{}", greeting); //borrowed error
+    // println!("{}", y);
+
+    //Borrowing
+    //& takes the reference only not the ownership
+
+    // let greeting = String::from("hello Imtiyaz");
+
+    // let y = &greeting;
+    // println!("{}", greeting); //borrowed error
+    // println!("{}", y);
+
+    let mut s1 = String::from("Hello ");
+
+    update_str(&mut s1);
+
+    // s1.push_str("World");
+
+    println!("{}", s1)
+
+    //a variable can have only single mutable reference at a time
 }
 
 //return type of fn can't be inferred like in ts we need to mention it.
-fn do_sum(a: i32, b: i32) -> i32 {
-    return a + b;
+// fn do_sum(a: i32, b: i32) -> i32 {
+//     return a + b;
+// }
+
+fn update_str(s: &mut String) {
+    s.push_str("World 11"); //cannot borrow `*s` as mutable, as it is behind a `&` reference
 }
