@@ -1,75 +1,37 @@
-fn main() {
-    // let x = 8;
-    // println!("x={}", x);
-    // let x: i64 = 77777777744111177;
-    // println!("Hello, world!");
-
-    // let mut x = 10;
-    // x = 15;
-
-    //all variables are immutable by default
-
-    // let is_male = true;
-    // let is_above_18 = true;
-
-    // if is_male {
-    //     println!("you are a male");
-    // } else {
-    //     println!("you are not male");
-    // }
-
-    // if is_male && is_above_18 {
-    //     println!("you are a legal male");
-    // }
-
-    // let greeting = String::from("hello Imtiyaz");
-
-    // println!("{}", greeting);
-
-    // for i in 0..10 {
-    //     print!("{}", i)
-    // }
-    //prints 0123456789
-    // let a = 10;
-    // let b = 20;
-    // let sum = do_sum(a, b);
-
-    // println!("Sum of {} and {} is {}", a, b, sum);
-
-    //ownership
-
-    // let greeting = String::from("hello Imtiyaz");
-    // println!("{}", greeting); //will work
-
-    // let y = greeting;
-    // println!("{}", greeting); //borrowed error
-    // println!("{}", y);
-
-    //Borrowing
-    //& takes the reference only not the ownership
-
-    // let greeting = String::from("hello Imtiyaz");
-
-    // let y = &greeting;
-    // println!("{}", greeting); //borrowed error
-    // println!("{}", y);
-
-    let mut s1 = String::from("Hello ");
-
-    update_str(&mut s1);
-
-    // s1.push_str("World");
-
-    println!("{}", s1)
-
-    //a variable can have only single mutable reference at a time
-}
-
-//return type of fn can't be inferred like in ts we need to mention it.
-// fn do_sum(a: i32, b: i32) -> i32 {
-//     return a + b;
+// struct User {
+//     name: String,
+//     age: u32,
+//     active: bool,
 // }
 
-fn update_str(s: &mut String) {
-    s.push_str("World 11"); //cannot borrow `*s` as mutable, as it is behind a `&` reference
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+impl Rect {
+    fn area(&self) -> u32 {
+        return self.width * self.height;
+    }
+}
+fn main() {
+    //structs    similar to  objects in javascript
+    // let name = String::from("Imtiyaz");
+
+    // let user = User {
+    //     name: name,
+    //     age: 25,
+    //     active: true,
+    // };
+
+    // println!(
+    //     "{} is {} years old and is {}",
+    //     user.name, user.age, user.active
+    // )
+
+    let rect: Rect = Rect {
+        width: 10,
+        height: 20,
+    };
+    println!("The area of rectangle is {}", rect.area())
 }
